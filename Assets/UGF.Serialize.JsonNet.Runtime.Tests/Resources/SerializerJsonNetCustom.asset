@@ -24,10 +24,10 @@ MonoBehaviour:
   - m_name: target1
     m_assembly: 
     m_type:
-      m_value: UGF.Serialize.Runtime.Tests.JsonNet.TestCustomSerializer+Target1,
+      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target1,
         UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_name: target2
     m_assembly: 
     m_type:
-      m_value: UGF.Serialize.Runtime.Tests.JsonNet.TestCustomSerializer+Target2,
+      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target2,
         UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
