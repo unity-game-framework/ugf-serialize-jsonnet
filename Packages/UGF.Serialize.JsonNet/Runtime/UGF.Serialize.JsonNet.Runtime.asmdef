@@ -1,0 +1,18 @@
+{
+    "name": "UGF.Serialize.JsonNet.Runtime",
+    "rootNamespace": "UGF.Serialize.JsonNet.Runtime",
+    "references": [
+        "GUID:e76e47a0b9e0396439161248a194baa5",
+        "GUID:6c7389a7d4bbed54e96eb1e71a69798e",
+        "GUID:088d00b6871540e44bce58af1a3f0f17"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

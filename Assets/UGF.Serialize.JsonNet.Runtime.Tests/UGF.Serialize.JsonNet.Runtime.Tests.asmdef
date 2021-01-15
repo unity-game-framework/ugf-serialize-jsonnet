@@ -1,0 +1,18 @@
+{
+    "name": "UGF.Serialize.JsonNet.Runtime.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6aeae19aa083b5343897cba5a7bc2714"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
