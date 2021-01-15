@@ -2,7 +2,8 @@
     "name": "UGF.Serialize.JsonNet.Editor",
     "rootNamespace": "UGF.Serialize.JsonNet.Editor",
     "references": [
-        "GUID:6aeae19aa083b5343897cba5a7bc2714"
+        "GUID:6aeae19aa083b5343897cba5a7bc2714",
+        "GUID:abdd615e45137c74ca2ce9c636c78c15"
     ],
     "includePlatforms": [
         "Editor"
