@@ -1,4 +1,4 @@
-# com.serialize.jsonnet
+# com.ugf.serialize.jsonnet
 
 UGF.Serialize.JsonNet
 
