@@ -1,27 +1,18 @@
 {
   "dependencies": {
-    "com.serialize.jsonnet": {
-      "version": "file:UGF.Serialize.JsonNet",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.ugf.serialize": "4.0.0",
-        "com.ugf.jsonnet": "1.2.3"
-      }
-    },
     "com.ugf.builder": {
       "version": "2.0.0",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
-      "url": "https://api.bintray.com/npm/unity-game-framework/public"
+      "url": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
     },
     "com.ugf.editortools": {
       "version": "1.8.1",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
-      "url": "https://api.bintray.com/npm/unity-game-framework/public"
+      "url": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
     },
     "com.ugf.jsonnet": {
       "version": "1.2.3",
@@ -30,7 +21,7 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "2.0.0"
       },
-      "url": "https://api.bintray.com/npm/unity-game-framework/public"
+      "url": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
     },
     "com.ugf.serialize": {
       "version": "4.0.0",
@@ -40,7 +31,16 @@
         "com.ugf.builder": "2.0.0",
         "com.ugf.editortools": "1.8.1"
       },
-      "url": "https://api.bintray.com/npm/unity-game-framework/public"
+      "url": "https://unitygameframework.jfrog.io/artifactory/api/npm/default"
+    },
+    "com.ugf.serialize.jsonnet": {
+      "version": "file:UGF.Serialize.JsonNet",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.ugf.serialize": "4.0.0",
+        "com.ugf.jsonnet": "1.2.3"
+      }
     },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
@@ -50,7 +50,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.3",
+      "version": "3.0.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -66,7 +66,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.20",
+      "version": "1.1.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
