@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using Newtonsoft.Json;
+using UGF.JsonNet.Runtime;
 
 namespace UGF.Serialize.JsonNet.Runtime
 {
@@ -34,20 +35,29 @@ namespace UGF.Serialize.JsonNet.Runtime
         {
             JsonSerializer serializer = OnCreateSerializer();
 
-            using JsonWriter writer = OnCreateWriter(target);
+            using (JsonWriter writer = OnCreateWriter(target))
+            {
+                serializer.Serialize(writer, target);
 
-            serializer.Serialize(writer, target);
+                string result = writer.ToString();
 
-            return writer.ToString();
+                if (Readable)
+                {
+                    result = JsonNetUtility.Format(result, true, Indent);
+                }
+
+                return result;
+            }
         }
 
         protected override object OnDeserialize(Type targetType, string data)
         {
             JsonSerializer serializer = OnCreateSerializer();
 
-            using JsonReader reader = OnCreateReader(targetType, data);
-
-            return serializer.Deserialize(reader, targetType);
+            using (JsonReader reader = OnCreateReader(targetType, data))
+            {
+                return serializer.Deserialize(reader, targetType);
+            }
         }
     }
 }
