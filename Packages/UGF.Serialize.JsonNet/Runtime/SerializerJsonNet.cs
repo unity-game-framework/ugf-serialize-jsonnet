@@ -2,12 +2,13 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UGF.JsonNet.Runtime;
+using UGF.RuntimeTools.Runtime.Contexts;
 using UGF.Serialize.Runtime;
 using Unity.Profiling;
 
 namespace UGF.Serialize.JsonNet.Runtime
 {
-    public class SerializerJsonNet : SerializerAsyncBase<string>
+    public class SerializerJsonNet : SerializerAsync<string>
     {
         public JsonSerializerSettings Settings { get; }
         public bool Readable { get; }
@@ -37,22 +38,22 @@ namespace UGF.Serialize.JsonNet.Runtime
             Indent = indent;
         }
 
-        public override string Serialize(object target)
+        protected override object OnSerialize(object target, IContext context)
         {
             return InternalSerialize(target);
         }
 
-        public override object Deserialize(Type targetType, string data)
+        protected override object OnDeserialize(Type targetType, string data, IContext context)
         {
             return InternalDeserialize(targetType, data);
         }
 
-        public override Task<string> SerializeAsync(object target)
+        protected override Task<string> OnSerializeAsync(object target, IContext context)
         {
             return Task.Run(() => InternalSerialize(target));
         }
 
-        public override Task<object> DeserializeAsync(Type targetType, string data)
+        protected override Task<object> OnDeserializeAsync(Type targetType, string data, IContext context)
         {
             return Task.Run(() => InternalDeserialize(targetType, data));
         }
