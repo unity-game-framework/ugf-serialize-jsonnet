@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
+using UGF.RuntimeTools.Runtime.Contexts;
 using UGF.Serialize.Runtime;
 using UnityEngine;
 
@@ -39,12 +40,12 @@ namespace UGF.Serialize.JsonNet.Runtime.Tests
                 }
             };
 
-            string result = serializer.Serialize(target);
+            string result = serializer.Serialize(target, new Context());
             string expected = Resources.Load<TextAsset>("SerializerJsonNetCustomResult").text;
 
             Assert.AreEqual(expected, $"{result.Replace("\r", string.Empty)}\n");
 
-            var result2 = serializer.Deserialize<Target>(result);
+            var result2 = serializer.Deserialize<Target>(result, new Context());
 
             Assert.NotNull(result2);
             Assert.IsNotEmpty(result2.Targets);
