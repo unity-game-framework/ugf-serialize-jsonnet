@@ -2,7 +2,7 @@
   "name": "com.ugf.serialize.jsonnet",
   "displayName": "UGF.Serialize.JsonNet",
   "version": "1.0.1",
-  "unity": "2020.2",
+  "unity": "2020.3",
   "apiCompatibility": ".NET Standard 2.0",
   "description": "Serializers implementation using Json.Net serialization.",
   "author": {
