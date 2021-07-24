@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UGF.Serialize.Runtime;
 using UnityEngine;
 
@@ -31,7 +32,9 @@ namespace UGF.Serialize.JsonNet.Runtime
 
         protected override ISerializer<string> OnBuildTyped()
         {
-            var serializer = new SerializerJsonNetConvertNames(Readable, Indent);
+            JsonSerializerSettings settings = OnCreateSettings();
+
+            var serializer = new SerializerJsonNetConvertNames(settings, Readable, Indent);
 
             SetupNames(serializer);
 

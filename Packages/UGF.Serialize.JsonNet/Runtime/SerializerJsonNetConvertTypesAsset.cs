@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UGF.EditorTools.Runtime.IMGUI.Types;
-using UGF.JsonNet.Runtime;
 using UGF.JsonNet.Runtime.Converters;
 using UGF.Serialize.Runtime;
 using UnityEngine;
@@ -40,7 +39,7 @@ namespace UGF.Serialize.JsonNet.Runtime
 
             SetupTypes(binder.Provider);
 
-            JsonSerializerSettings settings = JsonNetUtility.CreateDefault();
+            JsonSerializerSettings settings = OnCreateSettings();
 
             settings.SerializationBinder = binder;
 
