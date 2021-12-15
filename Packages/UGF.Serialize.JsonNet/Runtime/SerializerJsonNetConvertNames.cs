@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using UGF.JsonNet.Runtime;
 using UGF.JsonNet.Runtime.Converters;
 
 namespace UGF.Serialize.JsonNet.Runtime
@@ -27,18 +26,6 @@ namespace UGF.Serialize.JsonNet.Runtime
         protected override JsonReader OnCreateReader(Type targetType, string data)
         {
             return new ConvertPropertyNameReader(DeserializeNames, data);
-        }
-
-        protected override string OnSerialize(object target)
-        {
-            string result = base.OnSerialize(target);
-
-            if (Readable)
-            {
-                result = JsonNetUtility.Format(result, true, Indent);
-            }
-
-            return result;
         }
     }
 }
