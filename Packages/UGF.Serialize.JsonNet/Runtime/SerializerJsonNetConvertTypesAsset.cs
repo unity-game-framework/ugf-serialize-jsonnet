@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using UGF.EditorTools.Runtime.IMGUI.Types;
 using UGF.JsonNet.Runtime.Converters;
+using UGF.Serialize.JsonNet.Runtime.Binders;
 using UGF.Serialize.Runtime;
 using UnityEngine;
 
@@ -11,8 +13,10 @@ namespace UGF.Serialize.JsonNet.Runtime
     [CreateAssetMenu(menuName = "Unity Game Framework/Serialize/Serializer JsonNet Convert Types", order = 2000)]
     public class SerializerJsonNetConvertTypesAsset : SerializerJsonNetConvertNamesAsset
     {
+        [SerializeField] private bool m_allowAllTypes = true;
         [SerializeField] private List<ConvertTypeData> m_types = new List<ConvertTypeData>();
 
+        public bool AllowAllTypes { get { return m_allowAllTypes; } set { m_allowAllTypes = value; } }
         public List<ConvertTypeData> Types { get { return m_types; } }
 
         [Serializable]
@@ -35,7 +39,7 @@ namespace UGF.Serialize.JsonNet.Runtime
 
         protected override ISerializer<string> OnBuildTyped()
         {
-            var binder = new ConvertTypeNameBinder();
+            var binder = new ConvertTypeNameBinder(new ConvertTypeProvider(), m_allowAllTypes ? new DefaultSerializationBinder() : new SerializeJsonNetDisabledBinder());
 
             SetupTypes(binder.Provider);
 
