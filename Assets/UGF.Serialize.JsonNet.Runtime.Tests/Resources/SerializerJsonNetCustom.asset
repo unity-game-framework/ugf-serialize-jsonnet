@@ -53,3 +53,4 @@ MonoBehaviour:
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target2,
         UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_typeProviders: []

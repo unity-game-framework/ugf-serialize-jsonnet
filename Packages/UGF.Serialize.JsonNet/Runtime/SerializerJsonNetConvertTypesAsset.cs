@@ -15,9 +15,11 @@ namespace UGF.Serialize.JsonNet.Runtime
     {
         [SerializeField] private bool m_allowAllTypes = true;
         [SerializeField] private List<ConvertTypeData> m_types = new List<ConvertTypeData>();
+        [SerializeField] private List<SerializerJsonNetConvertTypeProviderAsset> m_typeProviders = new List<SerializerJsonNetConvertTypeProviderAsset>();
 
         public bool AllowAllTypes { get { return m_allowAllTypes; } set { m_allowAllTypes = value; } }
         public List<ConvertTypeData> Types { get { return m_types; } }
+        public List<SerializerJsonNetConvertTypeProviderAsset> TypeProviders { get { return m_typeProviders; } }
 
         [Serializable]
         public struct ConvertTypeData

@@ -9,6 +9,7 @@ namespace UGF.Serialize.JsonNet.Editor
     {
         private SerializedProperty m_propertyAllowAllTypes;
         private ReorderableListDrawer m_listTypes;
+        private ReorderableListDrawer m_listTypeProviders;
 
         protected override void OnEnable()
         {
@@ -17,6 +18,8 @@ namespace UGF.Serialize.JsonNet.Editor
             m_propertyAllowAllTypes = serializedObject.FindProperty("m_allowAllTypes");
             m_listTypes = new ReorderableListDrawer(serializedObject.FindProperty("m_types"));
             m_listTypes.Enable();
+            m_listTypeProviders = new ReorderableListDrawer(serializedObject.FindProperty("m_typeProviders"));
+            m_listTypeProviders.Enable();
         }
 
         protected override void OnDisable()
@@ -24,6 +27,7 @@ namespace UGF.Serialize.JsonNet.Editor
             base.OnDisable();
 
             m_listTypes.Disable();
+            m_listTypeProviders.Disable();
         }
 
         protected override void OnDrawGUILayout()
@@ -33,6 +37,7 @@ namespace UGF.Serialize.JsonNet.Editor
             EditorGUILayout.PropertyField(m_propertyAllowAllTypes);
 
             m_listTypes.DrawGUILayout();
+            m_listTypeProviders.DrawGUILayout();
         }
     }
 }
