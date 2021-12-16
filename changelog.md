@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0](https://github.com/unity-game-framework/ugf-serialize-jsonnet/releases/tag/2.1.0) - 2021-12-16  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-serialize-jsonnet/milestone/3?closed=1)  
+    
+
+### Added
+
+- Add generate type ids for type name converter ([#12](https://github.com/unity-game-framework/ugf-serialize-jsonnet/pull/12))  
+    - Update package _Unity_ version to `2021.2`.
+    - Update dependencies: `com.ugf.serialize` to `5.0.0` and `com.ugf.jsonnet` to `1.4.0` version.
+    - Add `SerializerJsonNetConvertTypesAsset.AllowAllTypes` property to determine whether to allow types which have not been added to the list.
+    - Add `SerializerJsonNetConvertTypesAsset.TypeProviders` property as collection of `SerializerJsonNetConvertTypeProviderAsset` assets which will be added to type provider.
+    - Add `SerializerJsonNetConvertTypeProviderAsset` abstract class to implement custom type provider.
+    - Add `SerializerJsonNetConvertTypeCollectionAsset` class as implementation of `SerializerJsonNetConvertTypeProviderAsset` class with collection of types by id.
+
 ## [2.0.0](https://github.com/unity-game-framework/ugf-serialize-jsonnet/releases/tag/2.0.0) - 2021-07-24  
 
 ### Release Notes
