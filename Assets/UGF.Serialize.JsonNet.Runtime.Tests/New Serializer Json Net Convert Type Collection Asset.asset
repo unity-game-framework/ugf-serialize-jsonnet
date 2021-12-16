@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1693bcdba4504694a64e705491781065, type: 3}
   m_Name: New Serializer Json Net Convert Type Collection Asset
   m_EditorClassIdentifier: 
-  m_types: []
+  m_types:
+  - m_id: c5da71c28ebb4e31a0e5ec732d514f5d
+    m_type:
+      m_value: UGF.Serialize.Runtime.Bytes.SerializerTextToBytes, UGF.Serialize.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
