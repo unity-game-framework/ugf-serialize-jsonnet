@@ -17,6 +17,7 @@ namespace UGF.Serialize.JsonNet.Runtime
         public struct TypeData
         {
             [SerializeField] private string m_id;
+            [TypeReferenceDropdown]
             [SerializeField] private TypeReference<object> m_type;
 
             public string Id { get { return m_id; } set { m_id = value; } }
