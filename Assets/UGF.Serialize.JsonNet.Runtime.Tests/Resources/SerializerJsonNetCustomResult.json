@@ -1,4 +1,5 @@
 ﻿{
+  "type": "UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target, UGF.Serialize.JsonNet.Runtime.Tests",
   "targets": [
     {
       "type": "target1",

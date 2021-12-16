@@ -8,7 +8,6 @@ namespace UGF.Serialize.JsonNet.Editor
     [CustomEditor(typeof(SerializerJsonNetConvertNamesAsset), true)]
     internal class SerializerJsonNetConvertNamesAssetEditor : UnityEditor.Editor
     {
-        private SerializedProperty m_propertyScript;
         private SerializedProperty m_propertyReadable;
         private SerializedProperty m_propertyIndent;
         private SerializedProperty m_propertySettings;
@@ -17,7 +16,6 @@ namespace UGF.Serialize.JsonNet.Editor
 
         protected virtual void OnEnable()
         {
-            m_propertyScript = serializedObject.FindProperty("m_Script");
             m_propertyReadable = serializedObject.FindProperty("m_readable");
             m_propertyIndent = serializedObject.FindProperty("m_indent");
             m_propertySettings = serializedObject.FindProperty("m_settings");
@@ -44,11 +42,7 @@ namespace UGF.Serialize.JsonNet.Editor
 
         protected virtual void OnDrawGUILayout()
         {
-            using (new EditorGUI.DisabledScope(true))
-            {
-                EditorGUILayout.PropertyField(m_propertyScript);
-            }
-
+            EditorIMGUIUtility.DrawScriptProperty(serializedObject);
             EditorGUILayout.PropertyField(m_propertyReadable);
             EditorGUILayout.PropertyField(m_propertyIndent);
             EditorGUILayout.PropertyField(m_propertySettings);

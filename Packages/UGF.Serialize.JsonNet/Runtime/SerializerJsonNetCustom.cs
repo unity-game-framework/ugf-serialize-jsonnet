@@ -34,30 +34,26 @@ namespace UGF.Serialize.JsonNet.Runtime
         protected override string OnSerialize(object target)
         {
             JsonSerializer serializer = OnCreateSerializer();
+            using JsonWriter writer = OnCreateWriter(target);
 
-            using (JsonWriter writer = OnCreateWriter(target))
+            serializer.Serialize(writer, target, typeof(object));
+
+            string result = writer.ToString();
+
+            if (Readable)
             {
-                serializer.Serialize(writer, target);
-
-                string result = writer.ToString();
-
-                if (Readable)
-                {
-                    result = JsonNetUtility.Format(result, true, Indent);
-                }
-
-                return result;
+                result = JsonNetUtility.Format(result, true, Indent);
             }
+
+            return result;
         }
 
         protected override object OnDeserialize(Type targetType, string data)
         {
             JsonSerializer serializer = OnCreateSerializer();
+            using JsonReader reader = OnCreateReader(targetType, data);
 
-            using (JsonReader reader = OnCreateReader(targetType, data))
-            {
-                return serializer.Deserialize(reader, targetType);
-            }
+            return serializer.Deserialize(reader, targetType);
         }
     }
 }

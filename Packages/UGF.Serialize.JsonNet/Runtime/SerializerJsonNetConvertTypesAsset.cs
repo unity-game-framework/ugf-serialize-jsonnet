@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using UGF.EditorTools.Runtime.IMGUI.Types;
 using UGF.JsonNet.Runtime.Converters;
+using UGF.Serialize.JsonNet.Runtime.Binders;
 using UGF.Serialize.Runtime;
 using UnityEngine;
 
@@ -11,9 +13,13 @@ namespace UGF.Serialize.JsonNet.Runtime
     [CreateAssetMenu(menuName = "Unity Game Framework/Serialize/Serializer JsonNet Convert Types", order = 2000)]
     public class SerializerJsonNetConvertTypesAsset : SerializerJsonNetConvertNamesAsset
     {
+        [SerializeField] private bool m_allowAllTypes = true;
         [SerializeField] private List<ConvertTypeData> m_types = new List<ConvertTypeData>();
+        [SerializeField] private List<SerializerJsonNetConvertTypeProviderAsset> m_typeProviders = new List<SerializerJsonNetConvertTypeProviderAsset>();
 
+        public bool AllowAllTypes { get { return m_allowAllTypes; } set { m_allowAllTypes = value; } }
         public List<ConvertTypeData> Types { get { return m_types; } }
+        public List<SerializerJsonNetConvertTypeProviderAsset> TypeProviders { get { return m_typeProviders; } }
 
         [Serializable]
         public struct ConvertTypeData
@@ -35,7 +41,7 @@ namespace UGF.Serialize.JsonNet.Runtime
 
         protected override ISerializer<string> OnBuildTyped()
         {
-            var binder = new ConvertTypeNameBinder();
+            var binder = new ConvertTypeNameBinder(new ConvertTypeProvider(), m_allowAllTypes ? new DefaultSerializationBinder() : new SerializeJsonNetDisabledBinder());
 
             SetupTypes(binder.Provider);
 
@@ -70,6 +76,13 @@ namespace UGF.Serialize.JsonNet.Runtime
                 {
                     provider.Add(type, data.Name);
                 }
+            }
+
+            for (int i = 0; i < m_typeProviders.Count; i++)
+            {
+                SerializerJsonNetConvertTypeProviderAsset typeProvider = m_typeProviders[i];
+
+                typeProvider.SetupTypes(provider);
             }
         }
     }

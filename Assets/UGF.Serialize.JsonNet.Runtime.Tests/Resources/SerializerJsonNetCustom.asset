@@ -14,12 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_readable: 1
   m_indent: 2
+  m_settings:
+    m_referenceLoopHandling: 1
+    m_missingMemberHandling: 0
+    m_objectCreationHandling: 0
+    m_nullValueHandling: 1
+    m_defaultValueHandling: 0
+    m_preserveReferencesHandling: 0
+    m_typeNameHandling: 4
+    m_metadataPropertyHandling: 0
+    m_typeNameAssemblyFormatHandling: 0
+    m_constructorHandling: 0
+    m_formatting: 0
+    m_dateFormatHandling: 0
+    m_dateTimeZoneHandling: 3
+    m_dateParseHandling: 1
+    m_floatFormatHandling: 0
+    m_floatParseHandling: 0
+    m_stringEscapeHandling: 0
+    m_dateFormatString: yyyy'-'MM'-'dd'T'HH':'mm':'ss.FFFFFFFK
+    m_maxDepth: 0
+    m_checkAdditionalContent: 0
   m_serializeNames:
   - m_from: $type
     m_to: type
   m_deserializeNames:
   - m_from: type
     m_to: $type
+  m_allowAllTypes: 1
   m_types:
   - m_name: target1
     m_assembly: 
@@ -31,3 +53,4 @@ MonoBehaviour:
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target2,
         UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_typeProviders: []
