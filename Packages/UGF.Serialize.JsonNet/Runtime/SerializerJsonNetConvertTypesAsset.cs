@@ -77,6 +77,13 @@ namespace UGF.Serialize.JsonNet.Runtime
                     provider.Add(type, data.Name);
                 }
             }
+
+            for (int i = 0; i < m_typeProviders.Count; i++)
+            {
+                SerializerJsonNetConvertTypeProviderAsset typeProvider = m_typeProviders[i];
+
+                typeProvider.SetupTypes(provider);
+            }
         }
     }
 }
