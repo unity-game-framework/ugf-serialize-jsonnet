@@ -2,6 +2,7 @@
 
 namespace UGF.Serialize.JsonNet.Runtime
 {
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
     public class SerializerJsonNetTypeAttribute : Attribute
     {
         public string Id { get; }
