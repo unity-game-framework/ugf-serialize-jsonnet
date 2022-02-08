@@ -8,17 +8,20 @@ namespace UGF.Serialize.JsonNet.Runtime.Tests
 {
     public class TestCustomSerializer
     {
+        [SerializerJsonNetType("target")]
         private class Target
         {
             public List<object> Targets { get; set; } = new List<object>();
         }
 
+        [SerializerJsonNetType("target1")]
         private class Target1
         {
             public int IntValue { get; set; } = 10;
             public float FloatValue { get; set; } = 10.5F;
         }
 
+        [SerializerJsonNetType("target2")]
         private class Target2
         {
             public bool BoolValue { get; set; } = true;
