@@ -11,6 +11,7 @@ namespace UGF.Serialize.JsonNet.Runtime.Tests
 {
     public class TestSerializerJsonNet
     {
+        [SerializerJsonNetType("79db0ba8d5cd4a3fa6d2b20df7829456")]
         [Serializable]
         private class Target
         {
