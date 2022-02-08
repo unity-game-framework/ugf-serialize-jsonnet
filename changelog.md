@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0](https://github.com/unity-game-framework/ugf-serialize-jsonnet/releases/tag/2.2.0) - 2022-02-08  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-serialize-jsonnet/milestone/4?closed=1)  
+    
+
+### Added
+
+- Add serializer type attribute for collection ([#13](https://github.com/unity-game-framework/ugf-serialize-jsonnet/issues/13))  
+    - Add `SerializerJsonNetTypeAttribute` attribute class to define type id information for classes and structures.
+    - Change `SerializerJsonNetConvertTypeCollectionAssetEditor` class to be public and add `OnCollectTypes()` overridable method to implement custom collect type logic.
+
 ## [2.1.0](https://github.com/unity-game-framework/ugf-serialize-jsonnet/releases/tag/2.1.0) - 2021-12-16  
 
 ### Release Notes
