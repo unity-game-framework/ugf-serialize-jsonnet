@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: New Serializer Json Net Convert Type Collection Asset
   m_EditorClassIdentifier: 
   m_types:
+  - m_id: target1
+    m_type:
+      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target1,
+        UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_id: c8703a9b7b514209a05c64835ab4d0a5
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerialized1, UGF.Serialize.JsonNet.Runtime.Tests,
@@ -21,18 +25,14 @@ MonoBehaviour:
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerialized2, UGF.Serialize.JsonNet.Runtime.Tests,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - m_id: target
-    m_type:
-      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target, UGF.Serialize.JsonNet.Runtime.Tests,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - m_id: target1
-    m_type:
-      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target1,
-        UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_id: target2
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target2,
         UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_id: target
+    m_type:
+      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target, UGF.Serialize.JsonNet.Runtime.Tests,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_id: 79db0ba8d5cd4a3fa6d2b20df7829456
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerializerJsonNet+Target,
@@ -40,4 +40,12 @@ MonoBehaviour:
   - m_id: 882939dac4ed40c1a3789174e0e3e2c9
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerialized3, UGF.Serialize.JsonNet.Runtime.Tests,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_id: 24f2061518a946e2ba91be459d13afe8
+    m_type:
+      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerializedAbstract, UGF.Serialize.JsonNet.Runtime.Tests,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_id: da9012311e7b42368ef1371573c6c636
+    m_type:
+      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerializedTypes+Target, UGF.Serialize.JsonNet.Runtime.Tests,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
