@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0](https://github.com/unity-game-framework/ugf-serialize-jsonnet/releases/tag/2.3.0) - 2022-03-20  
+
+### Release Notes
+
+- [Milestone](https://github.com/unity-game-framework/ugf-serialize-jsonnet/milestone/5?closed=1)  
+    
+
+### Added
+
+- Add optimized way to search for type ([#16](https://github.com/unity-game-framework/ugf-serialize-jsonnet/issues/16))  
+    - Change `SerializerJsonNetConvertTypeCollectionAsset` inspector dropdown to search for supported serializable types only.
+- Add button to generate id in type collection ([#15](https://github.com/unity-game-framework/ugf-serialize-jsonnet/issues/15))  
+    - Add `SerializerJsonNetConvertTypeCollectionAsset` inspector with button to refresh id of selected type.
+    - Change `SerializerJsonNetConvertTypeCollectionAsset` inspector to automatically generate id for type with empty id specified in attribute
+    - Change `SerializerJsonNetTypeAttribute` constructor to allow empty id.
+
 ## [2.2.0](https://github.com/unity-game-framework/ugf-serialize-jsonnet/releases/tag/2.2.0) - 2022-02-08  
 
 ### Release Notes
