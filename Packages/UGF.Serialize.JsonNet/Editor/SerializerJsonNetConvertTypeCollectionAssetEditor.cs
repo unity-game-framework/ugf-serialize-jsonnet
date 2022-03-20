@@ -14,6 +14,7 @@ namespace UGF.Serialize.JsonNet.Editor
     public class SerializerJsonNetConvertTypeCollectionAssetEditor : UnityEditor.Editor
     {
         private SerializerJsonNetConvertTypeCollectionListDrawer m_listTypes;
+        private bool m_hadError;
 
         private void OnEnable()
         {
@@ -43,16 +44,44 @@ namespace UGF.Serialize.JsonNet.Editor
                 {
                     if (GUILayout.Button("Refresh Selected"))
                     {
-                        OnRefreshSelected();
+                        m_hadError = false;
+
+                        try
+                        {
+                            OnRefreshSelected();
+                        }
+                        catch (Exception exception)
+                        {
+                            Debug.LogException(exception);
+
+                            m_hadError = true;
+                        }
                     }
                 }
 
                 if (GUILayout.Button("Refresh"))
                 {
-                    OnRefresh();
+                    m_hadError = false;
+
+                    try
+                    {
+                        OnRefresh();
+                    }
+                    catch (Exception exception)
+                    {
+                        Debug.LogException(exception);
+
+                        m_hadError = true;
+                    }
                 }
 
                 EditorGUILayout.Space();
+            }
+
+            if (m_hadError)
+            {
+                EditorGUILayout.Space();
+                EditorGUILayout.HelpBox("Previous refresh had errors, see console for more details.", MessageType.Warning);
             }
         }
 
@@ -115,6 +144,11 @@ namespace UGF.Serialize.JsonNet.Editor
 
                 if (type != null)
                 {
+                    if (string.IsNullOrEmpty(propertyId.stringValue))
+                    {
+                        propertyId.stringValue = Guid.NewGuid().ToString("N");
+                    }
+
                     types.Add(propertyId.stringValue, type);
                 }
             }
