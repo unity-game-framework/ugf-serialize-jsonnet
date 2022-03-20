@@ -45,11 +45,7 @@ MonoBehaviour:
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerializedAbstract, UGF.Serialize.JsonNet.Runtime.Tests,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - m_id: a469faa296e24aeaa8c75de50401d20c
+  - m_id: da9012311e7b42368ef1371573c6c636
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerializedTypes+Target, UGF.Serialize.JsonNet.Runtime.Tests,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - m_id: 
-    m_type:
-      m_value: UnityEngine.MasterServer, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
