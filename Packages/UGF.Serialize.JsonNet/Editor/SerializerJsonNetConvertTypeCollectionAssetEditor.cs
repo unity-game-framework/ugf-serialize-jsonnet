@@ -62,13 +62,16 @@ namespace UGF.Serialize.JsonNet.Editor
 
             foreach (Type type in collection)
             {
-                var attribute = type.GetCustomAttribute<SerializerJsonNetTypeAttribute>();
-
-                if (types.All(x => x.Value != type))
+                if (SerializerJsonNetEditorUtility.IsValidSerializableType(type))
                 {
-                    string id = !string.IsNullOrEmpty(attribute.Id) ? attribute.Id : Guid.NewGuid().ToString("N");
+                    var attribute = type.GetCustomAttribute<SerializerJsonNetTypeAttribute>();
 
-                    types.Add(id, type);
+                    if (types.All(x => x.Value != type))
+                    {
+                        string id = !string.IsNullOrEmpty(attribute.Id) ? attribute.Id : Guid.NewGuid().ToString("N");
+
+                        types.Add(id, type);
+                    }
                 }
             }
         }
