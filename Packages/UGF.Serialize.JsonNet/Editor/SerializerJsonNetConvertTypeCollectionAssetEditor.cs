@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UGF.EditorTools.Editor.IMGUI;
 using UGF.EditorTools.Editor.IMGUI.Scopes;
@@ -38,9 +39,17 @@ namespace UGF.Serialize.JsonNet.Editor
             {
                 GUILayout.FlexibleSpace();
 
-                if (GUILayout.Button("Collect"))
+                using (new EditorGUI.DisabledScope(!HasSelected()))
                 {
-                    OnCollect();
+                    if (GUILayout.Button("Refresh Selected"))
+                    {
+                        OnRefreshSelected();
+                    }
+                }
+
+                if (GUILayout.Button("Refresh"))
+                {
+                    OnRefresh();
                 }
 
                 EditorGUILayout.Space();
@@ -55,14 +64,40 @@ namespace UGF.Serialize.JsonNet.Editor
             {
                 var attribute = type.GetCustomAttribute<SerializerJsonNetTypeAttribute>();
 
-                if (!types.ContainsKey(attribute.Id))
+                if (types.All(x => x.Value != type))
                 {
-                    types.Add(attribute.Id, type);
+                    string id = !string.IsNullOrEmpty(attribute.Id) ? attribute.Id : Guid.NewGuid().ToString("N");
+
+                    types.Add(id, type);
                 }
             }
         }
 
-        private void OnCollect()
+        private void OnRefreshSelected()
+        {
+            SerializedProperty propertyArray = m_listTypes.SerializedProperty;
+
+            foreach (int index in m_listTypes.List.selectedIndices)
+            {
+                if (index < m_listTypes.List.count)
+                {
+                    SerializedProperty propertyElement = propertyArray.GetArrayElementAtIndex(index);
+                    SerializedProperty propertyId = propertyElement.FindPropertyRelative("m_id");
+                    SerializedProperty propertyValue = propertyElement.FindPropertyRelative("m_type.m_value");
+
+                    if (string.IsNullOrEmpty(propertyId.stringValue))
+                    {
+                        string id = Type.GetType(propertyValue.stringValue)?.GetCustomAttribute<SerializerJsonNetTypeAttribute>()?.Id ?? string.Empty;
+
+                        propertyId.stringValue = !string.IsNullOrEmpty(id) ? id : Guid.NewGuid().ToString("N");
+                    }
+                }
+            }
+
+            propertyArray.serializedObject.ApplyModifiedProperties();
+        }
+
+        private void OnRefresh()
         {
             SerializedProperty propertyArray = m_listTypes.SerializedProperty;
             var types = new Dictionary<string, Type>();
@@ -98,6 +133,19 @@ namespace UGF.Serialize.JsonNet.Editor
             }
 
             propertyArray.serializedObject.ApplyModifiedProperties();
+        }
+
+        private bool HasSelected()
+        {
+            foreach (int index in m_listTypes.List.selectedIndices)
+            {
+                if (index < m_listTypes.List.count)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

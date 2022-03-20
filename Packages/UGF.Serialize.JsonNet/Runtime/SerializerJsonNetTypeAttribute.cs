@@ -7,11 +7,9 @@ namespace UGF.Serialize.JsonNet.Runtime
     {
         public string Id { get; }
 
-        public SerializerJsonNetTypeAttribute(string id)
+        public SerializerJsonNetTypeAttribute(string id = "")
         {
-            if (string.IsNullOrEmpty(id)) throw new ArgumentException("Value cannot be null or empty.", nameof(id));
-
-            Id = id;
+            Id = id ?? throw new ArgumentNullException(nameof(id));
         }
     }
 }
