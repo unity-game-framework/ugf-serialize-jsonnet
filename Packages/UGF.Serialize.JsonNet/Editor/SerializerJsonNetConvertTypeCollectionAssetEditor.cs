@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UGF.EditorTools.Editor.IMGUI;
 using UGF.EditorTools.Editor.IMGUI.Scopes;
@@ -63,9 +64,11 @@ namespace UGF.Serialize.JsonNet.Editor
             {
                 var attribute = type.GetCustomAttribute<SerializerJsonNetTypeAttribute>();
 
-                if (!types.ContainsKey(attribute.Id))
+                if (types.All(x => x.Value != type))
                 {
-                    types.Add(attribute.Id, type);
+                    string id = !string.IsNullOrEmpty(attribute.Id) ? attribute.Id : Guid.NewGuid().ToString("N");
+
+                    types.Add(id, type);
                 }
             }
         }
@@ -84,10 +87,9 @@ namespace UGF.Serialize.JsonNet.Editor
 
                     if (string.IsNullOrEmpty(propertyId.stringValue))
                     {
-                        var type = Type.GetType(propertyValue.stringValue);
-                        var attribute = type?.GetCustomAttribute<SerializerJsonNetTypeAttribute>();
+                        string id = Type.GetType(propertyValue.stringValue)?.GetCustomAttribute<SerializerJsonNetTypeAttribute>()?.Id ?? string.Empty;
 
-                        propertyId.stringValue = attribute != null ? attribute.Id : Guid.NewGuid().ToString("N");
+                        propertyId.stringValue = !string.IsNullOrEmpty(id) ? id : Guid.NewGuid().ToString("N");
                     }
                 }
             }
