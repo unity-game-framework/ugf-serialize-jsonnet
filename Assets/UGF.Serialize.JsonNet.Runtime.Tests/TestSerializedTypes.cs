@@ -9,7 +9,7 @@
     {
     }
 
-    [SerializerJsonNetType("8bb2613576f340d68d4a304aad5a0948")]
+    [SerializerJsonNetType]
     public class TestSerialized2
     {
     }

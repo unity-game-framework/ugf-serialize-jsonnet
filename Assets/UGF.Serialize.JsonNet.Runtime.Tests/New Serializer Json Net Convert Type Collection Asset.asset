@@ -17,13 +17,9 @@ MonoBehaviour:
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerialized1, UGF.Serialize.JsonNet.Runtime.Tests,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - m_id: 8bb2613576f340d68d4a304aad5a0948
+  - m_id: 98673502c20f40758bb613c0ed36a4cc
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerialized2, UGF.Serialize.JsonNet.Runtime.Tests,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - m_id: 882939dac4ed40c1a3789174e0e3e2c9
-    m_type:
-      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerialized3, UGF.Serialize.JsonNet.Runtime.Tests,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_id: target
     m_type:
@@ -41,3 +37,7 @@ MonoBehaviour:
     m_type:
       m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerializerJsonNet+Target,
         UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_id: 882939dac4ed40c1a3789174e0e3e2c9
+    m_type:
+      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestSerialized3, UGF.Serialize.JsonNet.Runtime.Tests,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
