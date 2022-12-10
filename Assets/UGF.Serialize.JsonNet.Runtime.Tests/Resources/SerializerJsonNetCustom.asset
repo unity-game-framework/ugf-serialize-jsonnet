@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aca316dafd86ff4e89a8f48ace63464, type: 3}
   m_Name: SerializerJsonNetCustom
   m_EditorClassIdentifier: 
-  m_readable: 1
+  m_readable: 0
   m_indent: 2
   m_settings:
     m_referenceLoopHandling: 1
@@ -42,15 +42,5 @@ MonoBehaviour:
   - m_from: type
     m_to: $type
   m_allowAllTypes: 1
-  m_types:
-  - m_name: target1
-    m_assembly: 
-    m_type:
-      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target1,
-        UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - m_name: target2
-    m_assembly: 
-    m_type:
-      m_value: UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target2,
-        UGF.Serialize.JsonNet.Runtime.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_typeProviders: []
+  m_collections:
+  - {fileID: 11400000, guid: 87c050d2b9ceeac4fa688dc89f7fbf0d, type: 2}

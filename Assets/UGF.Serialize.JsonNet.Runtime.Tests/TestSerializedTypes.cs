@@ -1,11 +1,12 @@
 ﻿using System;
 using NUnit.Framework;
+using UGF.Serialize.Runtime;
 
 namespace UGF.Serialize.JsonNet.Runtime.Tests
 {
     public class TestSerializedTypes
     {
-        [SerializerJsonNetType]
+        [SerializeType]
         private class Target
         {
         }
@@ -27,22 +28,22 @@ namespace UGF.Serialize.JsonNet.Runtime.Tests
         }
     }
 
-    [SerializerJsonNetType("c8703a9b7b514209a05c64835ab4d0a5")]
+    [SerializeType("c8703a9b7b514209a05c64835ab4d0a5")]
     public class TestSerialized1
     {
     }
 
-    [SerializerJsonNetType]
+    [SerializeType]
     public class TestSerialized2
     {
     }
 
-    [SerializerJsonNetType("882939dac4ed40c1a3789174e0e3e2c9")]
+    [SerializeType("882939dac4ed40c1a3789174e0e3e2c9")]
     public class TestSerialized3
     {
     }
 
-    [SerializerJsonNetType]
+    [SerializeType]
     public abstract class TestSerializedAbstract
     {
     }

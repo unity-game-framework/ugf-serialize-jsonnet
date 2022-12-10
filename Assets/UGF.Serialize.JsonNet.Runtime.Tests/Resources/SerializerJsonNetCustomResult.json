@@ -1,15 +1,1 @@
-﻿{
-  "type": "UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target, UGF.Serialize.JsonNet.Runtime.Tests",
-  "targets": [
-    {
-      "type": "target1",
-      "intValue": 10,
-      "floatValue": 10.5
-    },
-    {
-      "type": "target2",
-      "boolValue": true,
-      "intValue": 10
-    }
-  ]
-}
+﻿{"type":"UGF.Serialize.JsonNet.Runtime.Tests.TestCustomSerializer+Target, UGF.Serialize.JsonNet.Runtime.Tests","targets":[{"type":"target1","intValue":10,"floatValue":10.5},{"type":"target2","boolValue":true,"intValue":10}]}
