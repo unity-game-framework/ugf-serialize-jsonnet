@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using UGF.EditorTools.Runtime.IMGUI.Types;
 using UGF.JsonNet.Runtime.Converters;
 using UGF.Serialize.JsonNet.Runtime.Binders;
 using UGF.Serialize.Runtime;
@@ -14,30 +13,10 @@ namespace UGF.Serialize.JsonNet.Runtime
     public class SerializerJsonNetConvertTypesAsset : SerializerJsonNetConvertNamesAsset
     {
         [SerializeField] private bool m_allowAllTypes = true;
-        [SerializeField] private List<ConvertTypeData> m_types = new List<ConvertTypeData>();
-        [SerializeField] private List<SerializerJsonNetConvertTypeProviderAsset> m_typeProviders = new List<SerializerJsonNetConvertTypeProviderAsset>();
+        [SerializeField] private List<SerializeTypeCollectionAsset> m_collections = new List<SerializeTypeCollectionAsset>();
 
         public bool AllowAllTypes { get { return m_allowAllTypes; } set { m_allowAllTypes = value; } }
-        public List<ConvertTypeData> Types { get { return m_types; } }
-        public List<SerializerJsonNetConvertTypeProviderAsset> TypeProviders { get { return m_typeProviders; } }
-
-        [Serializable]
-        public struct ConvertTypeData
-        {
-            [SerializeField] private string m_name;
-            [SerializeField] private string m_assembly;
-            [TypeReferenceDropdown]
-            [SerializeField] private TypeReference<object> m_type;
-
-            public string Name { get { return m_name; } set { m_name = value; } }
-            public string Assembly { get { return m_assembly; } set { m_assembly = value; } }
-            public TypeReference<object> Type { get { return m_type; } set { m_type = value; } }
-
-            public bool IsValid()
-            {
-                return m_type.HasValue && !string.IsNullOrEmpty(m_name);
-            }
-        }
+        public List<SerializeTypeCollectionAsset> Collections { get { return m_collections; } }
 
         protected override ISerializer<string> OnBuildTyped()
         {
@@ -60,29 +39,18 @@ namespace UGF.Serialize.JsonNet.Runtime
         {
             if (provider == null) throw new ArgumentNullException(nameof(provider));
 
-            for (int i = 0; i < m_types.Count; i++)
+            var types = new Dictionary<object, Type>();
+
+            for (int i = 0; i < m_collections.Count; i++)
             {
-                ConvertTypeData data = m_types[i];
+                SerializeTypeCollectionAsset collection = m_collections[i];
 
-                if (!data.IsValid()) throw new ArgumentException("Value should be valid.", nameof(data));
-
-                Type type = data.Type.Get();
-
-                if (!string.IsNullOrEmpty(data.Assembly))
-                {
-                    provider.Add(type, data.Name, data.Assembly);
-                }
-                else
-                {
-                    provider.Add(type, data.Name);
-                }
+                collection.GetTypes(types);
             }
 
-            for (int i = 0; i < m_typeProviders.Count; i++)
+            foreach ((object id, Type type) in types)
             {
-                SerializerJsonNetConvertTypeProviderAsset typeProvider = m_typeProviders[i];
-
-                typeProvider.SetupTypes(provider);
+                provider.Add(type, id.ToString());
             }
         }
     }

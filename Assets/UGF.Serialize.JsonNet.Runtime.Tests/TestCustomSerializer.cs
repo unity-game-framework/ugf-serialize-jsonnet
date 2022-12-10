@@ -8,20 +8,20 @@ namespace UGF.Serialize.JsonNet.Runtime.Tests
 {
     public class TestCustomSerializer
     {
-        [SerializerJsonNetType("target")]
+        [SerializeType("target")]
         private class Target
         {
             public List<object> Targets { get; set; } = new List<object>();
         }
 
-        [SerializerJsonNetType("target1")]
+        [SerializeType("target1")]
         private class Target1
         {
             public int IntValue { get; set; } = 10;
             public float FloatValue { get; set; } = 10.5F;
         }
 
-        [SerializerJsonNetType("target2")]
+        [SerializeType("target2")]
         private class Target2
         {
             public bool BoolValue { get; set; } = true;
@@ -46,7 +46,7 @@ namespace UGF.Serialize.JsonNet.Runtime.Tests
             string result = serializer.Serialize(target, new Context());
             string expected = Resources.Load<TextAsset>("SerializerJsonNetCustomResult").text;
 
-            Assert.AreEqual(expected, $"{result.Replace("\r", string.Empty)}\n");
+            Assert.AreEqual(expected, result);
 
             var result2 = serializer.Deserialize<Target>(result, new Context());
 

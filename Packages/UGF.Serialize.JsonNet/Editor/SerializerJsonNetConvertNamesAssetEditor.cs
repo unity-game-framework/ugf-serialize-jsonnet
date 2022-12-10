@@ -11,16 +11,16 @@ namespace UGF.Serialize.JsonNet.Editor
         private SerializedProperty m_propertyReadable;
         private SerializedProperty m_propertyIndent;
         private SerializedProperty m_propertySettings;
-        private ReorderableListDrawer m_listSerializeNames;
-        private ReorderableListDrawer m_listDeserializeNames;
+        private ReorderableListKeyAndValueDrawer m_listSerializeNames;
+        private ReorderableListKeyAndValueDrawer m_listDeserializeNames;
 
         protected virtual void OnEnable()
         {
             m_propertyReadable = serializedObject.FindProperty("m_readable");
             m_propertyIndent = serializedObject.FindProperty("m_indent");
             m_propertySettings = serializedObject.FindProperty("m_settings");
-            m_listSerializeNames = new SerializerJsonNetConvertNamesListDrawer(serializedObject.FindProperty("m_serializeNames"));
-            m_listDeserializeNames = new SerializerJsonNetConvertNamesListDrawer(serializedObject.FindProperty("m_deserializeNames"));
+            m_listSerializeNames = new ReorderableListKeyAndValueDrawer(serializedObject.FindProperty("m_serializeNames"), "m_from", "m_to");
+            m_listDeserializeNames = new ReorderableListKeyAndValueDrawer(serializedObject.FindProperty("m_deserializeNames"), "m_from", "m_to");
 
             m_listSerializeNames.Enable();
             m_listDeserializeNames.Enable();

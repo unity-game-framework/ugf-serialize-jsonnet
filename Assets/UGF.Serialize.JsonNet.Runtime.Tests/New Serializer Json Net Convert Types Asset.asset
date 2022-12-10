@@ -37,4 +37,6 @@ MonoBehaviour:
     m_checkAdditionalContent: 0
   m_serializeNames: []
   m_deserializeNames: []
-  m_types: []
+  m_allowAllTypes: 1
+  m_collections:
+  - {fileID: 11400000, guid: 054fb0ba9afec7b44a6653abf9bdf355, type: 2}
