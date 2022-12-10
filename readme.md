@@ -4,13 +4,13 @@ UGF.Serialize.JsonNet
 
 ## Information
 
-- **Version**: `2.3.0`
-- **Unity**: `2021.2`
+- **Version**: `3.0.0-preview`
+- **Unity**: `2021.3`
 - **API Compatibility Level**: `.NET Standard 2.1`
 
 ### Dependencies
 
-- `com.ugf.serialize`: `5.0.0`
+- `com.ugf.serialize`: `5.3.0`
 - `com.ugf.jsonnet`: `1.4.0`
 
 
