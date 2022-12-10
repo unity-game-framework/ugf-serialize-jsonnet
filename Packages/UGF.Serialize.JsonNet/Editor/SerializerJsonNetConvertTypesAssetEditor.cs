@@ -8,26 +8,38 @@ namespace UGF.Serialize.JsonNet.Editor
     internal class SerializerJsonNetConvertTypesAssetEditor : SerializerJsonNetConvertNamesAssetEditor
     {
         private SerializedProperty m_propertyAllowAllTypes;
-        private ReorderableListDrawer m_listTypes;
-        private ReorderableListDrawer m_listTypeProviders;
+        private ReorderableListDrawer m_listCollections;
+        private ReorderableListSelectionDrawerByElement m_listCollectionsSelection;
 
         protected override void OnEnable()
         {
             base.OnEnable();
 
             m_propertyAllowAllTypes = serializedObject.FindProperty("m_allowAllTypes");
-            m_listTypes = new ReorderableListDrawer(serializedObject.FindProperty("m_types"));
-            m_listTypes.Enable();
-            m_listTypeProviders = new ReorderableListDrawer(serializedObject.FindProperty("m_typeProviders"));
-            m_listTypeProviders.Enable();
+            m_listCollections = new ReorderableListDrawer(serializedObject.FindProperty("m_collections"));
+
+            m_listCollectionsSelection = new ReorderableListSelectionDrawerByElement(m_listCollections)
+            {
+                Drawer = { DisplayTitlebar = true }
+            };
+
+            m_listCollections.Enable();
+            m_listCollectionsSelection.Enable();
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
 
-            m_listTypes.Disable();
-            m_listTypeProviders.Disable();
+            m_listCollections.Disable();
+            m_listCollectionsSelection.Disable();
+        }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            m_listCollectionsSelection.DrawGUILayout();
         }
 
         protected override void OnDrawGUILayout()
@@ -36,8 +48,7 @@ namespace UGF.Serialize.JsonNet.Editor
 
             EditorGUILayout.PropertyField(m_propertyAllowAllTypes);
 
-            m_listTypes.DrawGUILayout();
-            m_listTypeProviders.DrawGUILayout();
+            m_listCollections.DrawGUILayout();
         }
     }
 }
