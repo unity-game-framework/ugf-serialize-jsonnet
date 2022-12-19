@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "com.ugf.serialize": "5.3.1",
-    "com.ugf.jsonnet": "1.4.0"
+    "com.ugf.jsonnet": "1.4.0",
+    "com.ugf.editortools": "2.15.0"
   }
 }
